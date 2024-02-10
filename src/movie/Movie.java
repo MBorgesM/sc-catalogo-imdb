@@ -1,9 +1,9 @@
-package film;
+package movie;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Film {
+public class Movie {
     private String title;
     private LocalDate releaseDate;
     private double budget;
@@ -13,7 +13,7 @@ public class Film {
     private ArrayList<Actor> casting;
     private ArrayList<Integer> ratings;
 
-    public Film(String title, LocalDate releaseDate, double budget, String country, String genre, Director director) {
+    public Movie(String title, LocalDate releaseDate, double budget, String country, String genre, Director director) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.budget = budget;
