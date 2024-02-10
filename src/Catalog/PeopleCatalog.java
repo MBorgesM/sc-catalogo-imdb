@@ -1,10 +1,7 @@
 package Catalog;
 
 import Interface.ICatalog;
-
-import javax.xml.catalog.Catalog;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class PeopleCatalog implements ICatalog {
 

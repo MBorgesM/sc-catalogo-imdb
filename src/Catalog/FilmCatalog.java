@@ -1,7 +1,6 @@
 package Catalog;
 
 import Interface.ICatalog;
-
 import java.util.List;
 
 public class FilmCatalog implements ICatalog {
