@@ -1,3 +1,5 @@
+package person;
+
 public class Actor extends Person {
     private String awards;
 

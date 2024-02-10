@@ -1,4 +1,6 @@
-public class Director extends Person{
+package person;
+
+public class Director extends Person {
     private int numberOfFilmsDirected;
 
     public Director(String name, String birthDay, int numberOfFilmsDirected) {
