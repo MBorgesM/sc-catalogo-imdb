@@ -37,11 +37,21 @@ public class FilmCatalog implements ICatalog {
     @Override
     public boolean remove(Object item) {
         this.films.remove(item);
-        return false;
+        return true;
     }
 
     @Override
     public List list() {
+        for (Film film : films){
+            System.out.println(film);
+        }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "FilmCatalog{" +
+                "films=" + films +
+                '}';
     }
 }
