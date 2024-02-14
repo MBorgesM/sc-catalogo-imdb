@@ -1,5 +1,7 @@
 package movie;
 
+import person.Actor;
+import person.Director;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

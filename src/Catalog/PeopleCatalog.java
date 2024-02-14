@@ -1,6 +1,8 @@
 package Catalog;
 
 import Interface.ICatalog;
+import person.Person;
+
 import java.util.List;
 
 public class PeopleCatalog implements ICatalog {
@@ -8,17 +10,19 @@ public class PeopleCatalog implements ICatalog {
     List<Person> people;
 
     @Override
-    public void addItem(Object item) {
-        this.people.add(item);
+    public boolean addItem(Object item) {
+        this.people.add((Person) item);
+        return false;
     }
 
     @Override
-    public void search(String name) {
+    public Object search(String name) {
         for (Person person : this.people){
-            if(person.name == name){
+            if(person.getName().equals(name)){
                 return person;
             }
         }
+        return null;
     }
 
     @Override
@@ -28,11 +32,11 @@ public class PeopleCatalog implements ICatalog {
     }
 
     @Override
-    public List list() {
+    public List<Person> list() {
         for (Person person : this.people){
             System.out.println(person);
         }
-        return null;
+        return people;
     }
 
     @Override

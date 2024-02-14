@@ -1,34 +1,39 @@
 package Catalog;
 
 import Interface.ICatalog;
+import movie.Movie;
+import person.Actor;
+import person.Director;
+
 import java.util.List;
+import java.util.Objects;
 
 public class FilmCatalog implements ICatalog {
 
-    List<Film> films;
+    List<Movie> movies;
 
 
-    private boolean associateActor(Film film, String name){
-        film.associateActor(name);
+    private boolean associateActor(Movie movie, Actor actor){
+        movie.addActorToCast(actor);
         return true;
     }
 
-    private boolean associateDirector(Film film, String name){
-        film.associateDirector(name);
+    private boolean associateDirector(Movie movie, Director director){
+        movie.associateDirector(director);
         return false;
     }
 
     @Override
     public boolean addItem(Object item) {
-        this.films.add(film);
+        this.movies.add((Movie) item);
         return true;
     }
 
     @Override
     public Object search(String title) {
-        for (Film film : this.films){
-            if(film.title == title){
-                return film;
+        for (Movie movie : this.movies){
+            if(Objects.equals(movie.getTitle(), title)){
+                return movie;
             }
         }
         return null;
@@ -36,22 +41,22 @@ public class FilmCatalog implements ICatalog {
 
     @Override
     public boolean remove(Object item) {
-        this.films.remove(item);
+        this.movies.remove(item);
         return true;
     }
 
     @Override
-    public List list() {
-        for (Film film : films){
-            System.out.println(film);
+    public List<Movie> list() {
+        for (Movie movie : movies){
+            System.out.println(movie);
         }
-        return null;
+        return movies;
     }
 
     @Override
     public String toString() {
         return "FilmCatalog{" +
-                "films=" + films +
+                "films=" + movies +
                 '}';
     }
 }
