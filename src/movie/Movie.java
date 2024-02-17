@@ -72,4 +72,18 @@ public class Movie {
     public ArrayList<Actor> getCasting() {
         return casting;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", budget=" + budget +
+                ", country='" + country + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director=" + director +
+                ", casting=" + casting +
+                ", ratings=" + ratings +
+                '}';
+    }
 }

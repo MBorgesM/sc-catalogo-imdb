@@ -8,9 +8,13 @@ import person.Director;
 import java.util.List;
 import java.util.Objects;
 
-public class FilmCatalog implements ICatalog {
+public class MovieCatalog implements ICatalog {
 
     List<Movie> movies;
+
+    public MovieCatalog(List<Movie> movies) {
+        this.movies = movies;
+    }
 
 
     private boolean associateActor(Movie movie, Actor actor){
@@ -47,9 +51,6 @@ public class FilmCatalog implements ICatalog {
 
     @Override
     public List<Movie> list() {
-        for (Movie movie : movies){
-            System.out.println(movie);
-        }
         return movies;
     }
 
