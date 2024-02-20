@@ -69,7 +69,11 @@ public class Main {
                     }
                     break;
                 case 2:
-
+                    if (deleteMovie(sc, movieCatalog)) {
+                        Menu.movieDeletedSuccessfully();
+                    } else {
+                        Menu.movieNotFound();
+                    }
                     break;
                 case 3:
 
@@ -109,5 +113,23 @@ public class Main {
         String genre = sc.nextLine();
 
         return new Movie(title, date, budget, country, genre);
+    }
+
+    public static boolean deleteMovie(Scanner sc, MovieCatalog movieCatalog) {
+        Menu.clearConsole();
+
+        System.out.print("Insert the title: ");
+        String title = sc.nextLine();
+
+        for (Movie movie : movieCatalog.list()) {
+            String movieTitle = movie.getTitle().toLowerCase();
+
+            if (movieTitle.equals(title.toLowerCase())) {
+                movieCatalog.remove(movie);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
