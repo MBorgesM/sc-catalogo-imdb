@@ -2,12 +2,13 @@ package movie;
 
 import person.Actor;
 import person.Director;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Movie {
     private String title;
-    private LocalDate releaseDate;
+    private Date releaseDate;
     private double budget;
     private String country;
     private String genre;
@@ -15,13 +16,12 @@ public class Movie {
     private ArrayList<Actor> casting;
     private ArrayList<Integer> ratings;
 
-    public Movie(String title, LocalDate releaseDate, double budget, String country, String genre, Director director) {
+    public Movie(String title, Date releaseDate, double budget, String country, String genre) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.budget = budget;
         this.country = country;
         this.genre = genre;
-        this.director = director;
         this.casting = new ArrayList<Actor>();
         this.ratings = new ArrayList<>();
     }
@@ -39,17 +39,14 @@ public class Movie {
     }
 
     public double getRating() {
-        return this.ratings.stream()
-                .mapToInt(i -> i)
-                .average()
-                .orElse(0.0);
+        return this.ratings.stream().mapToInt(i -> i).average().orElse(0.0);
     }
 
     public String getTitle() {
         return title;
     }
 
-    public LocalDate getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
@@ -75,15 +72,13 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "title='" + title + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", budget=" + budget +
-                ", country='" + country + '\'' +
-                ", genre='" + genre + '\'' +
-                ", director=" + director +
-                ", casting=" + casting +
-                ", ratings=" + ratings +
-                '}';
+        return "Title: " + title + '\n' +
+                "Release Date: " + releaseDate + '\n' +
+                "Budget: " + budget + '\n' +
+                "Country: " + country + '\n' +
+                "Genre: " + genre + '\n' +
+                "Director: " + director + '\n' +
+                "Casting: " + casting + '\n' +
+                "Ratings: " + ratings + '\n';
     }
 }

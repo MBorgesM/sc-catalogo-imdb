@@ -5,17 +5,15 @@ import movie.Movie;
 import person.Actor;
 import person.Director;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class MovieCatalog implements ICatalog {
-
     List<Movie> movies;
-
-    public MovieCatalog(List<Movie> movies) {
-        this.movies = movies;
+    public MovieCatalog() {
+        this.movies = new ArrayList<>();
     }
-
 
     private boolean associateActor(Movie movie, Actor actor){
         movie.addActorToCast(actor);
