@@ -35,6 +35,7 @@ public class Menu {
                 2 - Delete Movie
                 3 - Associate Director with Movie
                 4 - Add Actor to Movie Casting
+                5 - Go Back
                 """);
     }
 
@@ -44,6 +45,11 @@ public class Menu {
                 2 - Create Director
                 3 - View Person
                 4 - Delete Person
+                5 - Go Back
                 """);
+    }
+
+    public static void movieCreatedSuccessfully() {
+        System.out.println("Movie created successfully");
     }
 }

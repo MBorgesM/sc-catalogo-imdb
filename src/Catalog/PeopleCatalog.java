@@ -3,11 +3,15 @@ package Catalog;
 import Interface.ICatalog;
 import person.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PeopleCatalog implements ICatalog {
-
     List<Person> people;
+
+    public PeopleCatalog() {
+        this.people = new ArrayList<>();
+    }
 
     @Override
     public boolean addItem(Object item) {
