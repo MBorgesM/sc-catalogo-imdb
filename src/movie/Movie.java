@@ -2,12 +2,12 @@ package movie;
 
 import person.Actor;
 import person.Director;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Movie {
     private String title;
-    private LocalDate releaseDate;
+    private Date releaseDate;
     private double budget;
     private String country;
     private String genre;
@@ -15,13 +15,12 @@ public class Movie {
     private ArrayList<Actor> casting;
     private ArrayList<Integer> ratings;
 
-    public Movie(String title, LocalDate releaseDate, double budget, String country, String genre, Director director) {
+    public Movie(String title, Date releaseDate, double budget, String country, String genre) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.budget = budget;
         this.country = country;
         this.genre = genre;
-        this.director = director;
         this.casting = new ArrayList<Actor>();
         this.ratings = new ArrayList<>();
     }
@@ -49,7 +48,7 @@ public class Movie {
         return title;
     }
 
-    public LocalDate getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
