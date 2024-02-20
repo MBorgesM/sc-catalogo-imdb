@@ -52,4 +52,12 @@ public class Menu {
     public static void movieCreatedSuccessfully() {
         System.out.println("Movie created successfully");
     }
+
+    public static void movieDeletedSuccessfully() {
+        System.out.println("Movie deleted successfully");
+    }
+
+    public static void movieNotFound() {
+        System.out.println("Movie not found");
+    }
 }
