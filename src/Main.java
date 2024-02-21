@@ -1,14 +1,16 @@
 import Catalog.MovieCatalog;
+
 import Catalog.PeopleCatalog;
 import movie.Movie;
 import person.Actor;
 import person.Director;
 import person.Person;
 import utils.Menu;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +29,14 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    // Print Movies from Catalog
+                    System.out.println("""
+                            Movies Catalog
+                            """);
+                    for (Movie movie : movieCatalog.list()){
+                        System.out.print(movie.toString());
+                        System.out.println("______________");
+
+                    }
                     break;
                 case 2:
                     manageMovie(sc, movieCatalog, peopleCatalog);

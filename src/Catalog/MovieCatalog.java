@@ -11,7 +11,6 @@ import java.util.Objects;
 
 public class MovieCatalog implements ICatalog {
     List<Movie> movies;
-
     public MovieCatalog() {
         this.movies = new ArrayList<>();
     }
@@ -50,9 +49,6 @@ public class MovieCatalog implements ICatalog {
 
     @Override
     public List<Movie> list() {
-        for (Movie movie : movies){
-            System.out.println(movie);
-        }
         return movies;
     }
 
