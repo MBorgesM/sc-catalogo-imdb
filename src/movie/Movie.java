@@ -82,6 +82,6 @@ public class Movie {
                 "Genre: " + genre + '\n' +
                 "Director: " + director + '\n' +
                 "Casting: " + casting + '\n' +
-                "Ratings: " + ratings + '\n';
+                "Ratings: " + getRating() + '\n';
     }
 }

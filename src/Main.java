@@ -33,7 +33,7 @@ public class Main {
                             Movies Catalog
                             """);
                     for (Movie movie : movieCatalog.list()){
-                        System.out.print(movie.toString());
+                        System.out.print(movie);
                         System.out.println("______________");
 
                     }
@@ -45,7 +45,14 @@ public class Main {
                     // Print Manage Persons Options and get user input
                     break;
                 case 4:
-                    // Get Movie title from user and execute movieCatalog.search(title)
+                    Movie movie = searchMovie(sc, movieCatalog);
+                    System.out.println(movie);
+                    System.out.print("Do you want to rate this movie (Y/N): ");
+                    String rateOption = sc.nextLine();
+
+                    if (rateOption.equalsIgnoreCase("Y")) {
+                        rateMovie(sc, movie);
+                    }
                     break;
                 case 5:
                     break;
@@ -157,9 +164,7 @@ public class Main {
         String name = sc.nextLine();
 
         for (Person person : catalog.list()) {
-            String personName = person.getName().toLowerCase();
-
-            if (personName.equals(name.toLowerCase())) {
+            if (person.getName().equalsIgnoreCase(name)) {
                 return person;
             }
         }
@@ -172,13 +177,24 @@ public class Main {
         String title = sc.nextLine();
 
         for (Movie movie : catalog.list()) {
-            String movieTitle = movie.getTitle().toLowerCase();
-
-            if (movieTitle.equals(title.toLowerCase())) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
                 return movie;
             }
         }
 
         return null;
+    }
+
+    public static void rateMovie(Scanner sc, Movie movie) {
+        System.out.print("Rate the movie from 1 to 10: ");
+        int rating = sc.nextInt();
+        sc.nextLine();
+
+        if (rating < 1 || rating > 10) {
+            System.out.println("Rate invalid");
+            return;
+        }
+
+        movie.rate(rating);
     }
 }
