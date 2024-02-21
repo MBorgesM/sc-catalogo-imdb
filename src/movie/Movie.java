@@ -39,7 +39,10 @@ public class Movie {
     }
 
     public double getRating() {
-        return this.ratings.stream().mapToInt(i -> i).average().orElse(0.0);
+        return this.ratings.stream()
+                .mapToInt(i -> i)
+                .average()
+                .orElse(0.0);
     }
 
     public String getTitle() {

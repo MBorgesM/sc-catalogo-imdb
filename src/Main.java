@@ -14,8 +14,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Person> people = new ArrayList<>();
-        List<Movie> movies = new ArrayList<>();
         int option = 0;
         MovieCatalog movieCatalog = new MovieCatalog();
         PeopleCatalog peopleCatalog = new PeopleCatalog();
@@ -28,7 +26,6 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    // Print Movies from Catalog
                     System.out.println("""
                             Movies Catalog
                             """);
