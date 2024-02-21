@@ -2,6 +2,7 @@ package movie;
 
 import person.Actor;
 import person.Director;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -70,5 +71,17 @@ public class Movie {
 
     public ArrayList<Actor> getCasting() {
         return casting;
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + title + '\n' +
+                "Release Date: " + releaseDate + '\n' +
+                "Budget: " + budget + '\n' +
+                "Country: " + country + '\n' +
+                "Genre: " + genre + '\n' +
+                "Director: " + director + '\n' +
+                "Casting: " + casting + '\n' +
+                "Ratings: " + ratings + '\n';
     }
 }
