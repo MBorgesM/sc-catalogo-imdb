@@ -2,6 +2,8 @@ import Catalog.MovieCatalog;
 
 import Catalog.PeopleCatalog;
 import movie.Movie;
+import person.Actor;
+import person.Director;
 import person.Person;
 import utils.Menu;
 import java.text.ParseException;
@@ -23,6 +25,7 @@ public class Main {
             Menu.options();
             option = sc.nextInt();
             sc.nextLine();
+            Menu.clearConsole();
 
             switch (option) {
                 case 1:
@@ -67,6 +70,7 @@ public class Main {
             Menu.manageMovieOptions();
             option = sc.nextInt();
             sc.nextLine();
+            Menu.clearConsole();
 
             switch (option) {
                 case 1:
@@ -79,17 +83,41 @@ public class Main {
                     }
                     break;
                 case 2:
-                    if (deleteMovie(sc, movieCatalog)) {
-                        Menu.movieDeletedSuccessfully();
-                    } else {
+                    Movie movie = searchMovie(sc, movieCatalog);
+                    if (movie == null) {
                         Menu.movieNotFound();
                     }
+                    movieCatalog.remove(movie);
+                    Menu.movieDeletedSuccessfully();
                     break;
                 case 3:
-
+                    Person personDirector = searchPerson(sc, peopleCatalog);
+                    if (!(personDirector instanceof Director director)) {
+                        Menu.personInvalid();
+                        break;
+                    }
+                    Movie movieWithNewDirector = searchMovie(sc, movieCatalog);
+                    if (movieWithNewDirector == null) {
+                        Menu.movieNotFound();
+                        break;
+                    }
+                    movieWithNewDirector.associateDirector(director);
+                    director.setNumberOfFilmsDirected(director.getNumberOfFilmsDirected() + 1);
+                    Menu.directorAssociatedSuccessfully();
                     break;
                 case 4:
-
+                    Person personActor = searchPerson(sc, peopleCatalog);
+                    if (!(personActor instanceof Actor actor)) {
+                        Menu.personInvalid();
+                        break;
+                    }
+                    Movie movieWithNewActor = searchMovie(sc, movieCatalog);
+                    if (movieWithNewActor == null) {
+                        Menu.movieNotFound();
+                        break;
+                    }
+                    movieWithNewActor.addActorToCast(actor);
+                    Menu.castUpdatedSuccessfully();
                     break;
                 case 5:
                     break;
@@ -102,8 +130,6 @@ public class Main {
     }
 
     public static Movie createMovie(Scanner sc) throws ParseException {
-        Menu.clearConsole();
-
         System.out.print("Insert the title: ");
         String title = sc.nextLine();
 
@@ -125,21 +151,34 @@ public class Main {
         return new Movie(title, date, budget, country, genre);
     }
 
-    public static boolean deleteMovie(Scanner sc, MovieCatalog movieCatalog) {
-        Menu.clearConsole();
 
-        System.out.print("Insert the title: ");
-        String title = sc.nextLine();
+    public static Person searchPerson(Scanner sc, PeopleCatalog catalog) {
+        System.out.print("Insert the person's name: ");
+        String name = sc.nextLine();
 
-        for (Movie movie : movieCatalog.list()) {
-            String movieTitle = movie.getTitle().toLowerCase();
+        for (Person person : catalog.list()) {
+            String personName = person.getName().toLowerCase();
 
-            if (movieTitle.equals(title.toLowerCase())) {
-                movieCatalog.remove(movie);
-                return true;
+            if (personName.equals(name.toLowerCase())) {
+                return person;
             }
         }
 
-        return false;
+        return null;
+    }
+
+    public static Movie searchMovie(Scanner sc, MovieCatalog catalog) {
+        System.out.print("Insert the title: ");
+        String title = sc.nextLine();
+
+        for (Movie movie : catalog.list()) {
+            String movieTitle = movie.getTitle().toLowerCase();
+
+            if (movieTitle.equals(title.toLowerCase())) {
+                return movie;
+            }
+        }
+
+        return null;
     }
 }

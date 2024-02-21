@@ -60,4 +60,16 @@ public class Menu {
     public static void movieNotFound() {
         System.out.println("Movie not found");
     }
+
+    public static void personInvalid() {
+        System.out.println("Person invalid");
+    }
+
+    public static void directorAssociatedSuccessfully() {
+        System.out.println("Director associated successfully");
+    }
+
+    public static void castUpdatedSuccessfully() {
+        System.out.println("A new actor was inserted on the movie's cast successfully");
+    }
 }
