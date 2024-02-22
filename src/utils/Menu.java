@@ -72,4 +72,20 @@ public class Menu {
     public static void castUpdatedSuccessfully() {
         System.out.println("A new actor was inserted on the movie's cast successfully");
     }
+
+    public static void actorCreatedSuccessfully() {
+        System.out.println("Ator criado com sucesso");
+    }
+
+    public static void directorCreatedSuccessfully() {
+        System.out.println("Diretor criado com sucesso");
+    }
+
+    public static void personNotFound() {
+        System.out.println("Pessoa não encontrada");
+    }
+
+    public static void personDeletedSuccessfully() {
+        System.out.println("Pessoa deletada com sucesso");
+    }
 }

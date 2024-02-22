@@ -21,8 +21,8 @@ public class PeopleCatalog implements ICatalog {
 
     @Override
     public Object search(String name) {
-        for (Person person : this.people){
-            if(person.getName().equals(name)){
+        for (Person person : this.people) {
+            if (person.getName().equals(name)) {
                 return person;
             }
         }
@@ -37,8 +37,7 @@ public class PeopleCatalog implements ICatalog {
 
     @Override
     public List<Person> list() {
-        for (Person person : this.people){
-            System.out.println(person);
+        for (Person person : this.people) {
         }
         return people;
     }

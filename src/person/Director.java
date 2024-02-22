@@ -17,9 +17,9 @@ public class Director extends Person {
     }
 
     @Override
-    public void printDatails(){
-        System.out.println("Nome do Diretor: " + getName());
-        System.out.println("Data de Nascimento " + getBirthDay());
-        System.out.println("Quantidade de Filmes Dirigidos: " + numberOfFilmsDirected);
+    public String toString() {
+        return "Nome do Diretor: " + getName() + "\n" +
+                "Data de Nascimento " + getBirthDay() + "\n" +
+                "Quantidade de Filmes Dirigidos: " + getNumberOfFilmsDirected();
     }
 }

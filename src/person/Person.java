@@ -25,6 +25,5 @@ public abstract class Person {
         this.birthDay = birthDay;
     }
 
-    public abstract void printDatails();
 
 }

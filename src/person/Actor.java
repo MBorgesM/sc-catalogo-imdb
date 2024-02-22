@@ -8,6 +8,8 @@ public class Actor extends Person {
         this.awards = awards;
     }
 
+
+
     public String getAwards() {
         return awards;
     }
@@ -17,10 +19,9 @@ public class Actor extends Person {
     }
 
     @Override
-    public void printDatails() {
-        System.out.println("Nome do ator: " + getName());
-        System.out.println("Data de Nascimento: " + getBirthDay());
-        System.out.println("Prêmios: " + getAwards());
-
+    public String toString() {
+        return "Nome do ator: " + getName() + "\n" +
+                "Data de Nascimento: " + getBirthDay() + "\n" +
+                "Prêmios: " + getAwards();
     }
 }

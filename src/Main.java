@@ -1,16 +1,14 @@
 import Catalog.MovieCatalog;
-
 import Catalog.PeopleCatalog;
 import movie.Movie;
 import person.Actor;
 import person.Director;
 import person.Person;
 import utils.Menu;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +30,7 @@ public class Main {
                     System.out.println("""
                             Movies Catalog
                             """);
-                    for (Movie movie : movieCatalog.list()){
+                    for (Movie movie : movieCatalog.list()) {
                         System.out.print(movie);
                         System.out.println("______________");
 
@@ -42,7 +40,7 @@ public class Main {
                     manageMovie(sc, movieCatalog, peopleCatalog);
                     break;
                 case 3:
-                    // Print Manage Persons Options and get user input
+                    managePerson(sc, peopleCatalog);
                     break;
                 case 4:
                     Movie movie = searchMovie(sc, movieCatalog);
@@ -196,5 +194,80 @@ public class Main {
         }
 
         movie.rate(rating);
+    }
+
+    public static void managePerson(Scanner sc, PeopleCatalog peopleCatalog) {
+        int option = 0;
+
+        Menu.clearConsole();
+        do {
+            Menu.managePersonOptions();
+            option = sc.nextInt();
+            sc.nextLine();
+            Menu.clearConsole();
+
+            switch (option) {
+                case 1:
+                    Actor newActor = createActor(sc);
+                    peopleCatalog.addItem(newActor);
+                    Menu.actorCreatedSuccessfully();
+                    break;
+                case 2:
+                    Director newDirector = createDirector(sc);
+                    peopleCatalog.addItem(newDirector);
+                    Menu.directorCreatedSuccessfully();
+                    break;
+                case 3:
+                    Person person = searchPerson(sc, peopleCatalog);
+                    if (person == null) {
+                        Menu.personNotFound();
+                    } else {
+                        System.out.println(person);
+                    }
+                    break;
+                case 4:
+                    Person personToDelete = searchPerson(sc, peopleCatalog);
+                    if (personToDelete == null) {
+                        Menu.personNotFound();
+                    } else {
+                        peopleCatalog.remove(personToDelete);
+                        Menu.personDeletedSuccessfully();
+                    }
+                    break;
+                case 5:
+                    break;
+                default:
+                    Menu.invalidOptionMessage();
+                    sc.nextLine();
+                    break;
+            }
+        } while (option != 5);
+    }
+
+    public static Actor createActor(Scanner sc) {
+        System.out.print("Insira o nome: ");
+        String name = sc.nextLine();
+
+        System.out.print("\nInsira a data de nascimento no formato dd/MM/yyyy: ");
+        String birthDay = sc.nextLine();
+
+        System.out.print("\nInsira os prêmios: ");
+        String awards = sc.nextLine();
+
+        return new Actor(name, birthDay, awards);
+    }
+
+    public static Director createDirector(Scanner sc) {
+        System.out.print("Insira o nome: ");
+        String name = sc.nextLine();
+
+        System.out.print("\nInsira a data de nascimento no formato dd/MM/yyyy: ");
+        String birthDay = sc.nextLine();
+
+        System.out.print("\nInsira o número de filmes dirigidos: ");
+        int numberOfFilmsDirected = sc.nextInt();
+        sc.nextLine();
+
+        return new Director(name, birthDay, numberOfFilmsDirected);
     }
 }
