@@ -18,8 +18,8 @@ public class Director extends Person {
 
     @Override
     public String toString() {
-        return "Nome do Diretor: " + getName() + "\n" +
-                "Data de Nascimento " + getBirthDay() + "\n" +
-                "Quantidade de Filmes Dirigidos: " + getNumberOfFilmsDirected();
+        return "Director Name: " + getName() + "\n" +
+                "Date of Birth: " + getBirthDay() + "\n" +
+                "Number of Movies Directed: " + numberOfFilmsDirected;
     }
 }

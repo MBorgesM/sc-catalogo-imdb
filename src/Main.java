@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int option = 0;
+        int option;
         MovieCatalog movieCatalog = new MovieCatalog();
         PeopleCatalog peopleCatalog = new PeopleCatalog();
 
@@ -68,7 +68,7 @@ public class Main {
     }
 
     public static void manageMovie(Scanner sc, MovieCatalog movieCatalog, PeopleCatalog peopleCatalog) {
-        int option = 0;
+        int option;
 
         Menu.clearConsole();
         do {
@@ -197,7 +197,7 @@ public class Main {
     }
 
     public static void managePerson(Scanner sc, PeopleCatalog peopleCatalog) {
-        int option = 0;
+        int option;
 
         Menu.clearConsole();
         do {
@@ -245,26 +245,26 @@ public class Main {
     }
 
     public static Actor createActor(Scanner sc) {
-        System.out.print("Insira o nome: ");
+        System.out.print("Insert the name: ");
         String name = sc.nextLine();
 
-        System.out.print("\nInsira a data de nascimento no formato dd/MM/yyyy: ");
+        System.out.print("\nInsert the date of birth in the format dd/MM/yyyy: ");
         String birthDay = sc.nextLine();
 
-        System.out.print("\nInsira os prêmios: ");
+        System.out.print("\nInsert the awards won: ");
         String awards = sc.nextLine();
 
         return new Actor(name, birthDay, awards);
     }
 
     public static Director createDirector(Scanner sc) {
-        System.out.print("Insira o nome: ");
+        System.out.print("Insert the name: ");
         String name = sc.nextLine();
 
-        System.out.print("\nInsira a data de nascimento no formato dd/MM/yyyy: ");
+        System.out.print("\nInsert the date of birth in the format dd/MM/yyyy: ");
         String birthDay = sc.nextLine();
 
-        System.out.print("\nInsira o número de filmes dirigidos: ");
+        System.out.print("\nInsert the number of directed movies: ");
         int numberOfFilmsDirected = sc.nextInt();
         sc.nextLine();
 

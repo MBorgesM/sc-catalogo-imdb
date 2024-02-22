@@ -8,20 +8,10 @@ public class Actor extends Person {
         this.awards = awards;
     }
 
-
-
-    public String getAwards() {
-        return awards;
-    }
-
-    public void setAwards(String awards) {
-        this.awards = awards;
-    }
-
     @Override
     public String toString() {
-        return "Nome do ator: " + getName() + "\n" +
-                "Data de Nascimento: " + getBirthDay() + "\n" +
-                "Prêmios: " + getAwards();
+        return "Actor's Name: " + getName() + "\n" +
+                "Date of Birth: " + getBirthDay() + "\n" +
+                "Awards Won: " + awards;
     }
 }
